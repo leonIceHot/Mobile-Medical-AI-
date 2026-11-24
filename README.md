@@ -14,7 +14,7 @@ Classification/
 ├── data_augment.py   # 資料擴增模組
 ├── tool.py           # 模型定義與輔助工具
 ├── optim.py          # 最佳學習率搜尋
-├── train5.py         # 模型訓練主程式
+├── train.py         # 模型訓練主程式
 └── Inference.py      # 模型推論與預測
 ```
 
@@ -26,7 +26,7 @@ Classification/
 | `tool.py` | **模型定義檔** | 封裝分類模型的神經網路架構（Backbone 與分類頭）及相關輔助函式，供 `train5.py`、`optim.py` 與 `Inference.py` 統一匯入呼叫。 |
 | `optim.py` | **學習率搜尋** | 實作最佳學習率尋找機制（如 Learning Rate Finder），透過動態遞增學習率並觀察 Loss 變化曲線，協助在正式訓練前選定合適的初始學習率。 |
 | `train5.py` | **模型訓練主程式** | 整合資料載入、模型初始化、Loss 計算與反向傳播更新，執行完整的訓練與驗證迴圈（Training / Validation Loop），並儲存表現最佳的模型權重。 |
-| `Inference.py` | **模型推論** | 載入 `tool.py` 的模型結構與 `train5.py` 產出的權重檔，對新輸入的測試影像進行前處理與前向傳遞，並輸出預測類別與信心分數。 |
+| `Inference.py` | **模型推論** | 載入 `tool.py` 的模型結構與 `train.py` 產出的權重檔，對新輸入的測試影像進行前處理與前向傳遞，並輸出預測類別與信心分數。 |
 
 ## 標準執行流程（Workflow）
 
@@ -46,7 +46,7 @@ python data_augment.py
 python optim.py
 
 # 3. 執行模型訓練
-python train5.py
+python train.py
 
 # 4. 執行模型推論
 python Inference.py
