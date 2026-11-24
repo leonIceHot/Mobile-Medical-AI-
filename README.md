@@ -53,7 +53,7 @@ Classification/
 ├── data_augment.py   # 資料擴增模組
 ├── tool.py           # 模型定義與輔助工具
 ├── optim.py          # 最佳學習率搜尋
-├── train.py         # 模型訓練主程式
+├── train.py          # 模型訓練主程式
 └── Inference.py      # 模型推論與預測
 ```
 
