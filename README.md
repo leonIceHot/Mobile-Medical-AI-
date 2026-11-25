@@ -105,7 +105,7 @@ python train.py
 python Inference.py
 ```
 
-# Inference
+# Inference 模型推論
 對應檔案：`wound_inference.py`
 
 負責自動化兩階段端到端（End-to-End）推論流程，將「傷口偵測定位」與「傷口等級分類」串接為單一執行腳本。
