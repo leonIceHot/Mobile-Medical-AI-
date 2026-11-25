@@ -45,15 +45,15 @@ Detection/
 ├── wound_detection.py   # 傷口偵測
 
 ```
-第一階段：傷口部位偵測與特徵裁切（Detection & Context-Aware Cropping）
+第一階段：傷口部位偵測與特徵裁切（Wound Detection & Context-Aware Cropping）
 
 透過 Ultralytics 框架載入訓練完成的目標偵測模型（測試與部署階段採用輕量高效的 YOLO26s，實驗階段亦評估 RT-DETR-L 架構），對輸入影像進行傷口位置偵測。
 
 推論階段（wound_inference.py）針對偵測到的每一個傷口邊界框（Bounding Box），以中心點為基準將寬度與高度各放大 2 倍（並自動限制在原圖邊界內）後進行裁切存檔，藉此保留傷口周圍皮膚組織的上下文資訊，提升下一階段分類的準確度。
 
 
-## Classification 傷口分類
-第二階段：傷口等級分類（Classification）
+## Wound Classification 傷口分類
+第二階段：傷口等級分類（Wound Classification）
 
 讀取第一階段裁切出的傷口影像，經由標準化前處理（縮放至 256、中心裁切至 224×224 及 ImageNet 正規化）後，輸入微調過的 MobileNetV3-Large 分類模型。
 
